@@ -11,7 +11,7 @@ import CoreData
 
 class ListTableViewController: UITableViewController {
 
-    var myList : Array<AnyObject> = []
+    var myList : Array <AnyObject> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
