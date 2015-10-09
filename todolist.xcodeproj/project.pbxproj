@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		14BF52D51B53B0020007D19E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BF52D41B53B0020007D19E /* AppDelegate.swift */; };
 		14BF52D81B53B0020007D19E /* todolist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14BF52D61B53B0020007D19E /* todolist.xcdatamodeld */; };
-		14BF52DA1B53B0020007D19E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BF52D91B53B0020007D19E /* ViewController.swift */; };
 		14BF52DD1B53B0020007D19E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14BF52DB1B53B0020007D19E /* Main.storyboard */; };
 		14BF52DF1B53B0020007D19E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14BF52DE1B53B0020007D19E /* Images.xcassets */; };
 		14BF52E21B53B0020007D19E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BF52E01B53B0020007D19E /* LaunchScreen.xib */; };
@@ -34,7 +33,6 @@
 		14BF52D31B53B0020007D19E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14BF52D41B53B0020007D19E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14BF52D71B53B0020007D19E /* todolist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = todolist.xcdatamodel; sourceTree = "<group>"; };
-		14BF52D91B53B0020007D19E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		14BF52DC1B53B0020007D19E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14BF52DE1B53B0020007D19E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		14BF52E11B53B0020007D19E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 			children = (
 				14BF52D41B53B0020007D19E /* AppDelegate.swift */,
 				14BF52FB1B53B3110007D19E /* Model.swift */,
-				14BF52D91B53B0020007D19E /* ViewController.swift */,
 				14BF52F71B53B2A90007D19E /* ListTableViewController.swift */,
 				14BF52F91B53B2E50007D19E /* ItemViewController.swift */,
 				14BF52DB1B53B0020007D19E /* Main.storyboard */,
@@ -168,7 +165,9 @@
 		14BF52C71B53B0020007D19E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Terry Chia";
 				TargetAttributes = {
 					14BF52CE1B53B0020007D19E = {
@@ -224,7 +223,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14BF52DA1B53B0020007D19E /* ViewController.swift in Sources */,
 				14BF52D51B53B0020007D19E /* AppDelegate.swift in Sources */,
 				14BF52FA1B53B2E50007D19E /* ItemViewController.swift in Sources */,
 				14BF52FC1B53B3110007D19E /* Model.swift in Sources */,
@@ -292,6 +290,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -360,6 +359,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = todolist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Terry-Chia.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -370,6 +370,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = todolist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Terry-Chia.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -388,6 +389,7 @@
 				);
 				INFOPLIST_FILE = todolistTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Terry-Chia.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/todolist.app/todolist";
 			};
@@ -403,6 +405,7 @@
 				);
 				INFOPLIST_FILE = todolistTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Terry-Chia.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/todolist.app/todolist";
 			};
@@ -427,6 +430,7 @@
 				14BF52F31B53B0020007D19E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		14BF52F41B53B0020007D19E /* Build configuration list for PBXNativeTarget "todolistTests" */ = {
 			isa = XCConfigurationList;
@@ -435,6 +439,7 @@
 				14BF52F61B53B0020007D19E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
