@@ -50,18 +50,21 @@ class ItemViewController: UIViewController {
         else{   //new item created.
             
             //Create Instance of our data model and initialize
-            var newItem = Model(entity:en!,insertIntoManagedObjectContext: contxt)
+            let newItem = Model(entity:en!,insertIntoManagedObjectContext: contxt)
             
             //Map our properties
-            newItem.item = textFieldItem.text
-            newItem.quantity = textFieldQuantity.text
-            newItem.info = textFieldInfo.text
+            newItem.item = textFieldItem.text!
+            newItem.quantity = textFieldQuantity.text!
+            newItem.info = textFieldInfo.text!
             
-            println(newItem)
+            print(newItem)
         }
         
-        //Save our context
-        contxt.save(nil)
+        do {
+            //Save our context
+            try contxt.save()
+        } catch _ {
+        }
         
         //Back to root controller
         self.navigationController!.popToRootViewControllerAnimated(true)

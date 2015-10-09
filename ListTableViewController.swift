@@ -15,6 +15,9 @@ class ListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.editButtonItem().title = "Edit"
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -23,16 +26,15 @@ class ListTableViewController: UITableViewController {
         let context: NSManagedObjectContext = appDel.managedObjectContext!
         let freq = NSFetchRequest(entityName:"List")
         
-        myList = context.executeFetchRequest(freq, error: nil)!
+        myList = try! context.executeFetchRequest(freq)
         tableView.reloadData()
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "Update"{
          
-            var selectedItem : NSManagedObject = myList[self.tableView.indexPathForSelectedRow()!.row] as! NSManagedObject
+            let selectedItem : NSManagedObject = myList[self.tableView.indexPathForSelectedRow!.row] as! NSManagedObject
             
             let IVC: ItemViewController = segue.destinationViewController as! ItemViewController
             
@@ -69,19 +71,16 @@ class ListTableViewController: UITableViewController {
         //let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
-    
-        var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
+        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
-        var data: NSManagedObject = myList[indexPath.row] as! NSManagedObject
+        let data: NSManagedObject = myList[indexPath.row] as! NSManagedObject
             
         cell.textLabel!.text = data.valueForKeyPath("item") as? String
             
-        var qnt = data.valueForKey("quantity") as! String
-        var inf = data.valueForKey("info") as! String
+        let qnt = data.valueForKey("quantity") as! String
+        let inf = data.valueForKey("info") as! String
             
         cell.detailTextLabel!.text = "Quantity = \(qnt) item = \(inf)"
-        
-        
         
         return cell
     }
@@ -103,19 +102,17 @@ class ListTableViewController: UITableViewController {
         let context : NSManagedObjectContext = appDel.managedObjectContext!
         
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
-            
-            
                 context.deleteObject(myList[indexPath.row] as! NSManagedObject)
                 myList.removeAtIndex(indexPath.row)
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
             
         }
         
-        var error: NSError? = nil
-        if !context.save(&error) {
+        do {
+            try context.save()
+        } catch {
             abort()
         }
-    
     }
     
 
